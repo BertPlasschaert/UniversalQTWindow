@@ -5,15 +5,20 @@ import __future__
 
 from BaseWindowManager import BaseWindowManager
 
-from MainWindow import TestDialog
+from MainWindow import MainWindow
+
 
 class WindowManager(BaseWindowManager):
 
-    def __init__(self):
+    def __init__(self, Main):
 
         if issubclass(BaseWindowManager, object):
-            # new style class, call super
-            super(WindowManager, self).__init__()
+            # new style class, call super --> Python 3.X
+            super(WindowManager, self).__init__(Main)
         else:
-            # old style class, call __init__ manually
-            BaseWindowManager.__init__(self)
+            # old style class, call __init__ manually --> Python 2.7
+            BaseWindowManager.__init__(self, Main)
+
+def spawnCylinder():
+
+    print("spawn Cylinder")

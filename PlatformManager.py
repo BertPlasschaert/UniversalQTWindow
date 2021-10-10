@@ -22,3 +22,6 @@ def GetPlatformModule():
 
     if Platform != None:
         return Platform
+
+    print("Platform not recognised")
+    return None
