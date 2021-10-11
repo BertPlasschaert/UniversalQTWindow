@@ -18,4 +18,13 @@ class WindowManager(BaseWindowManager):
 
 
 def spawnCylinder():
-    mxs.cylinder()
+    # type: () -> object
+    obj = mxs.cylinder()
+    return obj
+
+
+def renameObject(obj, newName):
+    # type: (object, str) -> object
+    obj.name = newName
+
+    return obj

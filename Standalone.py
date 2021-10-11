@@ -19,6 +19,10 @@ class WindowManager(BaseWindowManager):
             # old style class, call __init__ manually --> Python 2.7
             BaseWindowManager.__init__(self, Main)
 
-def spawnCylinder():
 
+def spawnCylinder():
     print("spawn Cylinder")
+
+
+def renameObject(obj, newName):
+    print("renamed Object to: " + newName)

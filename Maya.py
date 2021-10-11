@@ -28,4 +28,12 @@ class WindowManager(BaseWindowManager):
 
 
 def spawnCylinder():
-    cmds.cylinder()
+    obj = cmds.cylinder()
+    return obj
+
+
+def renameObject(obj, newName):
+    # type: (object, str) -> object
+
+    obj = cmds.rename(obj[0], newName)
+    return obj

@@ -1,6 +1,6 @@
 import sys
 
-sys.path.append("C://Users//Bert//Desktop//UniversalWindow")
+sys.path.append("C://BackupHDD//Projects//UniversalWindow")
 
 import PlatformManager
 
@@ -15,7 +15,8 @@ class Main:
         self.WindowManager.showWindow()
 
     def spawnAnimatedCylinder(self):
-        self.Platform.spawnCylinder()
+        cylinder = self.Platform.spawnCylinder()
+        self.Platform.renameObject(cylinder, "animatedCylinder")
 
 
 if __name__ == '__main__':
