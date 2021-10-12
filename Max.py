@@ -34,9 +34,6 @@ def renameObject(obj, newName):
 def setTranslationKeyframe(obj, frameNumber, translation, absolute):
     # type: (object, int, list, bool) -> object
 
-    # cylinder = rt.cylinder()
-
-    obj.pos = rt.Point3(10, 10, 10)
 
     if absolute:
         newPos = rt.Point3(translation[0], translation[1], translation[2])
@@ -45,8 +42,6 @@ def setTranslationKeyframe(obj, frameNumber, translation, absolute):
 
     with pymxs.animate(True):
         with pymxs.attime(frameNumber):
-            # obj.pos = rt.Point3(translation[0], translation[1], translation[2])
-            # obj.pos = rt.Point3(3, 4, 3)
             obj.pos = newPos
 
     pymxs.redraw(True)
