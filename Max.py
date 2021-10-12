@@ -1,6 +1,7 @@
 from PySide2 import QtWidgets, QtCore
 from qtmax import GetQMaxMainWindow
-from pymxs import runtime as mxs
+from pymxs import runtime as rt
+import pymxs
 
 from BaseWindowManager import BaseWindowManager
 
@@ -19,12 +20,35 @@ class WindowManager(BaseWindowManager):
 
 def spawnCylinder():
     # type: () -> object
-    obj = mxs.cylinder()
+    obj = rt.cylinder()
     return obj
 
 
 def renameObject(obj, newName):
     # type: (object, str) -> object
     obj.name = newName
+
+    return obj
+
+
+def setTranslationKeyframe(obj, frameNumber, translation, absolute):
+    # type: (object, int, list, bool) -> object
+
+    # cylinder = rt.cylinder()
+
+    obj.pos = rt.Point3(10, 10, 10)
+
+    if absolute:
+        newPos = rt.Point3(translation[0], translation[1], translation[2])
+    else:
+        newPos = rt.Point3(obj.pos[0] + translation[0], obj.pos[1] + translation[1], obj.pos[2] + translation[2])
+
+    with pymxs.animate(True):
+        with pymxs.attime(frameNumber):
+            # obj.pos = rt.Point3(translation[0], translation[1], translation[2])
+            # obj.pos = rt.Point3(3, 4, 3)
+            obj.pos = newPos
+
+    pymxs.redraw(True)
 
     return obj

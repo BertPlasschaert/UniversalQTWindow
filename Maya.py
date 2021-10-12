@@ -37,3 +37,15 @@ def renameObject(obj, newName):
 
     obj = cmds.rename(obj[0], newName)
     return obj
+
+
+def setTranslationKeyframe(obj, frameNumber, translation, absolute):
+    # type: (object, int, list, bool) -> object
+
+    cmds.move(translation[0], translation[1], translation[2], obj, absolute=absolute)
+
+    cmds.setKeyframe(obj, attribute="translateX", t=frameNumber)
+    cmds.setKeyframe(obj, attribute="translateY", t=frameNumber)
+    cmds.setKeyframe(obj, attribute="translateZ", t=frameNumber)
+
+    return obj

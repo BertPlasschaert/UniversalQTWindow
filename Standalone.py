@@ -25,4 +25,11 @@ def spawnCylinder():
 
 
 def renameObject(obj, newName):
+    # type: (object, str) -> None
     print("renamed Object to: " + newName)
+
+
+def setTranslationKeyframe(obj, frameNumber, translation, absolute):
+    # type: (object, int, list, bool) -> None
+
+    print("Keyframe placed on:{} at frame: {} ,relative= {}".format(translation, frameNumber, absolute))

@@ -16,7 +16,8 @@ class Main:
 
     def spawnAnimatedCylinder(self):
         cylinder = self.Platform.spawnCylinder()
-        self.Platform.renameObject(cylinder, "animatedCylinder")
+        cylinder = self.Platform.renameObject(cylinder, "animatedCylinder")
+        self.Platform.setTranslationKeyframe(cylinder, 10, [5, 0, 0], False)
 
 
 if __name__ == '__main__':
